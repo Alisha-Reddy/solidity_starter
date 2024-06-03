@@ -1,5 +1,5 @@
 //SPDX-License-Identifier:MIT
-pragma solidity *0.8.0;
+pragma solidity ^0.8.1;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -23,9 +23,9 @@ contract RealEstate is ERC721URIStorage{
         //It takes one input, tokenURI, which is a link to the metadata (like a description or picture) for the NFT.
         _tokenIds.increment(); //increases our counter by one because we are creating a new NFT.
 
-        uint256 newItenmId = _tokenIds.current();
+        uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId); //creates the new NFT and assigns it to the person who called the function (the sender).
-        _setTokenURI(newItenmId, tokenURI); //attaches the metadata link to our new NFT.
+        _setTokenURI(newItemId, tokenURI); //attaches the metadata link to our new NFT.
 
         return newItemId; 
     }
